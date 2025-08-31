@@ -4,95 +4,68 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public Button[] cells;
-    public Sprite xSprite;
-    public Sprite oSprite;
-    private string currentPlayer = "X";
+    [Header("Scene References")]
+    public TicTacToeCell[] cellViews;      // 9 cells with indices set 0..8
     public TextMeshProUGUI winText;
     public Button restartButton;
-    private bool gameOver = false;
+
+    [Header("Config")]
+    public Mark startingPlayer = Mark.X;
+
+    private TicTacToeBoard board = new TicTacToeBoard();
+    private Mark currentPlayer;
+    private bool gameOver;
 
     void Start()
     {
-        foreach (Button cell in cells)
+        foreach (var cell in cellViews)
         {
-            cell.onClick.AddListener(() => OnCellClicked(cell));
+            cell.onClicked.AddListener(HandleCellClicked);
         }
 
         restartButton.onClick.AddListener(ResetBoard);
-        restartButton.gameObject.SetActive(false);
-        winText.text = "";
+        ResetBoard();
     }
 
-    void OnCellClicked(Button cell)
-{
-    if (gameOver) return;
-
-    Image cellImage = cell.GetComponent<Image>();
-    if (cellImage.sprite != null) return; // already filled
-
-    cellImage.sprite = (currentPlayer == "X") ? xSprite : oSprite;
-
-    if (CheckWinner())
+    private void HandleCellClicked(int idx)
     {
-        winText.text = currentPlayer + " wins!";
-        restartButton.gameObject.SetActive(true);
-        gameOver = true;
-        return;
-    }
+        if (gameOver) return;
+        if (!board.IsEmpty(idx)) return;
 
-    if (CheckTie())
-    {
-        winText.text = "Tie!";
-        restartButton.gameObject.SetActive(true);
-        gameOver = true;
-        return;
-    }
+        // Update board state
+        if (!board.Place(idx, currentPlayer)) return;
 
-    currentPlayer = (currentPlayer == "X") ? "O" : "X";
-}
+        // Update cell view
+        cellViews[idx].SetMark(currentPlayer);
 
-
-    bool CheckWinner()
-    {
-        int[,] wins = new int[,]
+        if (board.HasWinner(out var winner))
         {
-            {0,1,2}, {3,4,5}, {6,7,8},
-            {0,3,6}, {1,4,7}, {2,5,8},
-            {0,4,8}, {2,4,6}
-        };
-
-        for (int i = 0; i < wins.GetLength(0); i++)
-        {
-            Sprite a = cells[wins[i,0]].GetComponent<Image>().sprite;
-            Sprite b = cells[wins[i,1]].GetComponent<Image>().sprite;
-            Sprite c = cells[wins[i,2]].GetComponent<Image>().sprite;
-
-            if (a != null && a == b && b == c) return true;
+            winText.text = $"{winner} wins!";
+            gameOver = true;
+            restartButton.gameObject.SetActive(true);
+            return;
         }
-        return false;
-    }
 
-    bool CheckTie()
-    {
-    foreach (Button cell in cells)
-    {
-        if (cell.GetComponent<Image>().sprite == null)
-            return false; 
-    }
-    return true;
-    }
-
-
-    void ResetBoard()
-    {
-        foreach (Button cell in cells)
+        if (board.IsFull())
         {
-            cell.GetComponent<Image>().sprite = null;
+            winText.text = "Tie!";
+            gameOver = true;
+            restartButton.gameObject.SetActive(true);
+            return;
         }
-        currentPlayer = "X";
+
+        currentPlayer = (currentPlayer == Mark.X) ? Mark.O : Mark.X;
+    }
+
+    private void ResetBoard()
+    {
+        board.Reset();
+        foreach (var cell in cellViews)
+            cell.Clear();
+
+        currentPlayer = startingPlayer;
         winText.text = "";
-        restartButton.gameObject.SetActive(false);
         gameOver = false;
+        restartButton.gameObject.SetActive(false);
     }
 }

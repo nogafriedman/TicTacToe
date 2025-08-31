@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2e7457f65f0203a4692ee88ff8b4f41e
+guid: bb03a9ce97ca22740a597db09fe6acda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8201672346973139806
-    second: pngfind.com-grid-background-png-1288069_0
+      213: -6446045739702323301
+    second: Transparent_X_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pngfind.com-grid-background-png-1288069_0
+      name: Transparent_X_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 684
-        height: 685
+        x: 17
+        y: 15
+        width: 367
+        height: 367
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ac858a647ecd2e80800000000000000
-      internalID: -8201672346973139806
+      spriteID: b977f176d8b0b86a0800000000000000
+      internalID: -6446045739702323301
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pngfind.com-grid-background-png-1288069_0: -8201672346973139806
+      Transparent_X_0: -6446045739702323301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

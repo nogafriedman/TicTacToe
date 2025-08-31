@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ad274bab381eca4ebb98d2cfc4e34cf
+guid: 2e7457f65f0203a4692ee88ff8b4f41e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6211581352796989691
-    second: abstract-surface-textures-white-concrete-stone-wall_0
+      213: -8201672346973139806
+    second: pngfind.com-grid-background-png-1288069_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: abstract-surface-textures-white-concrete-stone-wall_0
+      name: pngfind.com-grid-background-png-1288069_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 6000
-        height: 4000
+        width: 684
+        height: 685
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50758158ba70cc9a0800000000000000
-      internalID: -6211581352796989691
+      spriteID: 2ac858a647ecd2e80800000000000000
+      internalID: -8201672346973139806
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      abstract-surface-textures-white-concrete-stone-wall_0: -6211581352796989691
+      pngfind.com-grid-background-png-1288069_0: -8201672346973139806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
